@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
@@ -10,7 +12,26 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Meet the Team</h1>
-    <script src="js/index.js"></script>
+    <header>
+      <div class="header-container">
+        <h1>Meet the Team</h1>
+
+        <div id="select-menu" name="select-menu">
+          <select id="select" class="heartbeat">
+            <option value="">Select the team</option>
+            <option value="everyone">Everyone</option>
+            <option value="leadership">Leadership</option>
+            <option value="sales">Sales</option>
+            <option value="customer-service">Customer Service</option>
+            <option value="product">Product</option>
+          </select>
+          <span class="custom-arrow"></span>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="employee-container" class="employee-container"></div>
+    </main>
+    <script src="js/index.js" type="module"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-const employees = [
+export const employees = [
   {
     name: "Jeremy Durant",
     title: "CEO",
@@ -239,4 +239,4 @@ const employees = [
       linkedin: "https://www.linkedin.com/",
     },
   },
-]
+];
