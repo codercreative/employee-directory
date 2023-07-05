@@ -30,10 +30,24 @@ function filteredEmployeesByTeam() {
       return item;
     }
   });
-}
 
-// const selectedTeam = document.querySelector("option:checked").value;
-// if (selectedTeam === "everyone") {
-//   getEmployeesHtml();
+  const filteredEmployeeList = filteredTeams
+    .map(function (emp) {
+      return `<div class="card">
+    <img class="employee-img" src="images/photos/${emp.image}" alt="${emp.name}" />
+    <h2>${emp.name}</h2>
+    <h3>${emp.title}</h3>
+    <p>${emp.bio}</p>     
+  </div>`;
+    })
+    .join("");
+
+  employeeContainer.innerHTML = filteredEmployeeList;
+
+  const selectedEveryone = document.querySelector("option:checked").value;
+  if (selectedEveryone === "everyone") {
+    getEmployeesHtml();
+  }
+}
 
 selectMenu.addEventListener("change", filteredEmployeesByTeam);
