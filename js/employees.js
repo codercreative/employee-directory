@@ -106,7 +106,7 @@ export const employees = [
   {
     name: "Maria Santos",
     title: "Customer Success",
-    team: "customer service",
+    team: "customer-service",
     bio: "<p>Maria loves to support her customers. She loves to make herself coffee in the morning and start running through support tickets.</p> <p>In her free time, Maria likes to hang out with her friends and do karaoke.</p>",
     image: "maria.jpg",
     social: {
@@ -116,7 +116,7 @@ export const employees = [
   {
     name: "Muhammad Adel",
     title: "Customer Success",
-    team: "customer service",
+    team: "customer-service",
     bio: "<p>Muhammad Adel has worked in customer service for the last 30 years.</p> <p>It was his first job after high school and he’s still working in customer service all these later!</p>",
     image: "muhammad.jpg",
     social: {
@@ -127,7 +127,7 @@ export const employees = [
   {
     name: "Alexander Smith",
     title: "Customer Success",
-    team: "customer service",
+    team: "customer-service",
     bio: "<p>Alexander finished his bachelors from the University of Pennsylvania in Economics.</p> <p>Alexander loves skateboarding and snowboarding.</p>",
     image: "alexander.jpg",
     social: {
