@@ -69,12 +69,155 @@ selectMenu.addEventListener("change", filterEmployeesByTeam);
 
 ### Useful Code Snippets
 
-CSS:
+Responsive design with grid:
 
 ```
   display: grid;
 
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+```
+
+Accessibility:
+
+- Add `select: focus` to the select menu
+
+```css
+select:hover,
+select:focus {
+  background-color: #5e716a;
+  color: #fff;
+  border: 2px solid #fff;
+}
+```
+
+- Add helper class `visually-hidden` to the label of the select menu. That way it is hidden to the user, yet accessible.
+
+```html
+<label for="select" class="visually-hidden">Search for members by team</label>
+```
+
+```css
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+```
+
+Refactor code with html helper function:
+
+- Create an html function to refactor code and make code DRYer
+
+```html
+function generateEmployeeHtml(emp) { return `
+<div class="card">
+  <img
+    class="employee-img"
+    src="images/photos/${emp.image}"
+    alt="${emp.name}"
+  />
+  <h2>${emp.name}</h2>
+  <h3>${emp.title}</h3>
+  <p>${emp.bio}</p>
+</div>
+`; }
+```
+
+That way I can use this html function two places instead of repeating the html code twice.
+
+Here:
+
+```jsx
+function renderEmployees() {
+  const employeeList = employees.map(generateEmployeeHtml).join("");
+  employeeContainer.innerHTML = employeeList;
+}
+renderEmployees();
+```
+
+And here:
+
+```jsx
+//Render function to filter the employees by team
+function filteredEmployeesByTeam() {
+  // returns an array of employee objects that match the condition
+  const filteredTeams = employees.filter(function (emp) {
+    if (select.value.toLowerCase().includes(emp.team)) {
+      return emp;
+    }
+  });
+
+  const filteredEmployeeList = filteredTeams.map(generateEmployeeHtml).join("");
+
+  employeeContainer.innerHTML = filteredEmployeeList;
+
+  //Render everyone if "everyone" or "select-team" options are selected
+  const checkedValue = document.querySelector("option:checked").value;
+
+  if (checkedValue === "everyone" || checkedValue === "select-team") {
+    renderEmployees();
+  }
+}
+```
+
+Make the employee cards appear more visually appealing with `justify-content: flex-start`. The cards are then the same size and the text blocks align with each other:
+
+```css
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  /* justify-content: space-around; */
+
+  justify-content: flex-start; /* flex-start aligns the cards more succinctly */
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 1em 1.5em;
+  border: 1px solid #eaeaea;
+  border-radius: 0.3em;
+}
+```
+
+Displaying social icons:
+
+```jsx
+function generateEmployeeHtml(emp) {
+  // create html for social icons
+  let socialHtml = "";
+
+  if (emp.social.linkedin && emp.social.twitter) {
+    socialHtml = `
+      <img src=${linkedinIcon} class="social-icon" alt="LinkedIn icon" >
+      <img src=${twitterIcon} class="social-icon" alt="Twitter icon" >`;
+  } else if (emp.social.linkedin) {
+    socialHtml = `<img src=${linkedinIcon} class="social-icon" alt="LinkedIn icon" >`;
+  } else {
+    socialHtml = `<img src=${twitterIcon} class="social-icon" alt="Twitter icon" >`;
+  }
+
+  // create html for the card
+  return `
+  <div class="card" >
+    <img class="employee-img" src="images/photos/${emp.image}" alt="${emp.name}"/>
+    <h2>${emp.name}</h2>
+    <h3>${emp.title}</h3>
+    <p>${emp.bio}</p> 
+    <div class="social-container">${socialHtml}</div>    
+  </div>`;
+}
+```
+
+… and making the icon stick to the bottom of the card with\*\* `margin-top: auto;`
+
+```css
+.social-container {
+  margin-top: auto;
+}
 ```
 
 ### Resources used:

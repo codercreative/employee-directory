@@ -16,16 +16,24 @@
       <div class="header-container">
         <h1>Meet the Team</h1>
 
-        <div id="select-menu" name="select-menu">
+        <div id="select-menu" class="select-menu" name="select-menu">
+          <label for="select" class="visually-hidden"
+            >Search for members by team</label
+          >
           <select id="select" class="heartbeat">
-            <option value="">Select the team</option>
+            <option value="select-team">Select the team</option>
             <option value="everyone">Everyone</option>
             <option value="leadership">Leadership</option>
             <option value="sales">Sales</option>
             <option value="customer-service">Customer Service</option>
             <option value="product">Product</option>
           </select>
-          <span class="custom-arrow"></span>
+          <img
+            src="images/icons/arrow.png"
+            id="arrow-icon"
+            class="arrow-icon"
+            alt="Arrow icon"
+          />
         </div>
       </div>
     </header>

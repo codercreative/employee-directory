@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Calistoga&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
+/* GENERAL */
 *,
 *::before,
 *::after {
@@ -16,7 +17,6 @@
 }
 
 /* HEADER */
-
 header {
   background-image: url("../images/hero.png");
   background-size: cover;
@@ -50,7 +50,6 @@ p {
 }
 
 /* SELECT */
-
 select {
   font-family: "Inter", sans-serif;
   font-size: 1.1rem;
@@ -59,17 +58,35 @@ select {
   border-radius: 4px;
   width: 210px;
   appearance: none;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 }
 
-select:hover {
-  background-color: #5e716a;
+select:hover,
+select:focus {
+  background-color: #07847b;
   color: #fff;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
+}
+
+/* ARROW ICON */
+
+.select-menu {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 20%;
+  right: 1em;
+  background: #fff;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+  border: 1px solid #fff;
 }
 
 /* EMPLOYEE LIST */
-
 main {
   background: #f5f5f5;
 }
@@ -87,8 +104,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  justify-content: space-around;
-
+  justify-content: flex-start; /* flex-start aligns the cards more succinctly */
   background-color: #fff;
   margin: 0 auto;
   padding: 1em 1.5em;
@@ -102,6 +118,28 @@ main {
   width: 80px;
   margin: 0 auto;
   margin-top: 20px;
+}
+
+/* SOCIAL ICONS */
+.social-container {
+  margin: 0 auto;
+  margin-top: auto;
+}
+
+.social-icon {
+  margin: 0 0.5em;
+}
+
+/* HELPER CLASSES */
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
 }
 
 /* ANIMISTA */
