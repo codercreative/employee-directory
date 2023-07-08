@@ -19,12 +19,12 @@ function generateEmployeeHtml(emp) {
 
   if (emp.social.linkedin && emp.social.twitter) {
     socialHtml = `
-      <img src=${linkedinIcon} class="social-icon" alt="LinkedIn icon" >
-      <img src=${twitterIcon} class="social-icon" alt="Twitter icon" >`;
+    <a href="${emp.social.linkedin}"><img src=${linkedinIcon} class="social-icon" alt="LinkedIn icon" ></a>
+    <a href="${emp.social.twitter}"><img src=${twitterIcon} class="social-icon" alt="Twitter icon" ></a>`;
   } else if (emp.social.linkedin) {
-    socialHtml = `<img src=${linkedinIcon} class="social-icon" alt="LinkedIn icon" >`;
+    socialHtml = `<a href="${emp.social.linkedin}"><img src=${linkedinIcon} class="social-icon" alt="LinkedIn icon" ></a>`;
   } else {
-    socialHtml = `<img src=${twitterIcon} class="social-icon" alt="Twitter icon" >`;
+    socialHtml = `<a href="${emp.social.twitter}"><img src=${twitterIcon} class="social-icon" alt="Twitter icon" ></a>`;
   }
 
   // create html for the card
