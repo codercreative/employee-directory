@@ -245,3 +245,7 @@ function generateEmployeeHtml(emp) {
 - [Simple Filters in CSS or JS](https://dev.to/dhintz89/simple-filters-in-css-or-js-185k)
 
 - [How to Output JSON data into the web page JavaScript code and JSON data for web page content](https://www.youtube.com/watch?v=LkvdPf6LCeM)
+
+### Acknowledgements
+
+A special thank you to Micha from Scrimba for reviewing my code.
